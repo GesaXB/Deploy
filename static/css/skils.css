@@ -1,0 +1,197 @@
+/* Menambahkan font dari Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+/* Section Skills */
+.skills-section {
+  padding: 80px 30px;
+  background-color: #f9f9f9;
+  text-align: center;
+  position: relative;
+  margin-top: 170px; /* Jarak dengan hero */
+  opacity: 0; /* Mulai dengan elemen tidak terlihat */
+  filter: blur(10px); /* Mulai dengan blur */
+  transform: translateY(20px); /* Mulai dengan posisi di bawah */
+  transition: opacity 1s, filter 1s, transform 1s;
+  font-family: "Poppins", sans-serif; /* Menambahkan font Poppins */
+}
+
+.skills-section.visible {
+  opacity: 1;
+  filter: blur(0); /* Menghilangkan blur */
+  transform: translateY(0); /* Pindahkan ke posisi normal */
+}
+
+.skills-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(to right, #007bff, #00c6ff);
+}
+
+/* Menambahkan garis bawah pada akhir section Skills */
+.skills-section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(to right, #007bff, #00c6ff);
+}
+
+
+.skills-title h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #333;
+  animation: fadeInDown 1s ease;
+}
+
+.skills-title p {
+  font-size: 18px;
+  color: #666;
+  margin-top: 10px;
+  animation: fadeInUp 1s ease;
+}
+
+.skills-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+/* Style untuk card */
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  opacity: 0; /* Mulai dengan elemen tidak terlihat */
+  transform: translateY(20px); /* Mulai dengan posisi di bawah */
+  animation: none; /* Tidak ada animasi secara default */
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+}
+
+.card.visible {
+  animation: fadeInUp 0.6s ease-out forwards; /* Ketika elemen terlihat, jalankan animasi */
+} /* Card hover */
+.card:hover {
+  transform: translateY(-10px) scale(1.05); /* Membesarkan card dengan scale dan menggeser sedikit ke atas */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  background-color: #007bff; /* Mengubah background menjadi biru pada hover */
+}
+
+.card:hover h3 {
+  color: #fff; /* Teks judul menjadi putih saat hover */
+}
+
+.card:hover p {
+  color: #eaeaea; /* Warna teks lebih terang pada hover */
+}
+
+/* Mengubah warna ikon menjadi putih dan membesarkan ikon saat hover card */
+.card:hover .icon i {
+  color: #fff; /* Ikon berubah menjadi putih saat hover */
+  transform: scale(1.3); /* Ikon membesar lebih besar pada hover */
+}
+
+/* Mengubah gambar ikon menjadi putih dan membesarkan gambar ikon saat hover card */
+.card:hover .icon img {
+  filter: brightness(0) invert(1); /* Mengubah gambar menjadi putih */
+  transform: scale(1.3); /* Membesarkan gambar ikon saat hover */
+}
+
+/* Gaya ikon secara umum */
+.card .icon i {
+  font-size: 50px;
+  color: #007bff; /* Ikon berwarna biru pada keadaan normal */
+  margin-bottom: 15px;
+  transition: color 0.3s ease, transform 0.3s ease; /* Menambahkan transisi untuk perubahan transform */
+}
+
+/* Gaya gambar ikon */
+.card .icon img {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease, filter 0.3s ease; /* Menambahkan transisi untuk perubahan transform */
+}
+
+.card h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+.card:hover h3 {
+  color: #fff;
+}
+
+.card p {
+  font-size: 16px;
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+.card:hover p {
+  color: #eaeaea;
+}
+
+
+
+/* Responsivitas */
+@media (max-width: 768px) {
+  .skills-section {
+    margin-top: 50px;
+  }
+
+  .skills-title h2 {
+    font-size: 30px;
+  }
+
+  .skills-title p {
+    font-size: 16px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .card h3 {
+    font-size: 20px;
+  }
+
+  .card p {
+    font-size: 14px;
+  }
+}
+
+/* Animasi */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

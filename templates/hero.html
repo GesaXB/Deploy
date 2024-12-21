@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/hero.css' %}" />
+    <title>Hero</title>
+  </head>
+  <body>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="intro">Hey, I am Gesa</p>
+        <h1>
+          Crafting <span class="highlight">sleek</span>,
+          <span class="highlight">powerful websites</span>
+          to bring ideas to life
+        </h1>
+        <p class="description">
+          From concept to code, I create seamless web experiences that engage
+          and inspire. Let’s build something amazing together!
+        </p>
+        <button class="btn">Get In Touch</button>
+      </div>
+      <div class="hero-image">
+        <img
+          src="{% static 'images/Profil.png' %}"
+          alt="Gesa Profile Picture"
+        />
+      </div>
+    </section>
+  </body>
+</html>

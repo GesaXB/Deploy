@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/skils.css' %}" />
+    <title>Skills</title>
+  </head>
+  <body>
+    <section class="skills-section">
+      <div class="skills-title">
+        <h2 style="color: #007bff;">My Skills</h2>
+        <p>A showcase of my expertise and abilities.</p>
+      </div>
+      <div class="skills-cards">
+        {% for skill in skills %}
+        <div class="card">
+          <div class="icon">
+            {% if skill.icon %}
+            <img
+              src="{{ skill.icon.url }}"
+              alt="{{ skill.name }}"
+              class="skill-img"
+            />
+            {% else %}
+            <i class="fas fa-code"></i>
+            {% endif %}
+          </div>
+          <h3>{{ skill.name }}</h3>
+          <p>{{ skill.description }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- Script untuk Intersection Observer -->
+    <script>
+     // Intersection Observer untuk mendeteksi elemen yang muncul di viewport
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible'); // Menambahkan kelas 'visible' saat elemen muncul
+      observer.unobserve(entry.target); // Stop mengamati elemen setelah muncul
+    }
+  });
+}, {
+  threshold: 0.5 // Threshold untuk 50% elemen terlihat di viewport
+});
+
+// Mengamati elemen section skills
+const skillsSection = document.querySelector('.skills-section');
+observer.observe(skillsSection);
+
+// Mengamati elemen card untuk animasi per card
+const skillCards = document.querySelectorAll('.card');
+skillCards.forEach(card => observer.observe(card));
+    </script>
+  </body>
+</html>

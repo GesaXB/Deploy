@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/about.css' %}" />
+    <title>About Me</title>
+  </head>
+  <body>
+    <!-- about.html -->
+    <section class="about-section">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>About Me</h2>
+          <p>
+            I am a passionate developer with a love for creating innovative and
+            functional web applications. I specialize in modern web development
+            technologies and always aim to improve my skills.
+          </p>
+        </div>
+        <div class="about-image">
+          <img src="{% static 'images/Profil.png' %}" alt="My Photo" />
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
