@@ -20,20 +20,19 @@ body {
   gap: 3rem;
   position: relative;
   animation: fadeIn 1s ease-out;
-  margin-top: 200px; /* Menambahkan margin atas untuk memberi jarak antara navbar dan hero */
+  margin-top: 210px; /* Menambahkan margin atas untuk memberi jarak antara navbar dan hero */
 }
-
-/* Anda bisa menyesuaikan angka pada margin-top sesuai kebutuhan untuk jarak yang lebih tepat */
 
 /* Konten teks */
 .hero-content {
   max-width: 600px;
-  animation: slideInLeft 1s ease-out;
   transform: translateY(50px);
   opacity: 0;
-  animation: slideInLeft 1s ease-out forwards;
+  animation: slideInLeft 1s ease-out forwards,
+    fadeInText 1.5s ease-in-out 0.5s forwards;
 }
 
+/* Animasi teks intro */
 .intro {
   font-size: 1.1rem;
   color: #3b82f6;
@@ -52,6 +51,8 @@ h1 {
   margin-bottom: 1.5rem;
   position: relative;
   transition: color 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  animation: fadeInText 1.5s ease-in-out 1s forwards; /* Add delay for smoother transition */
 }
 
 h1 .highlight {
@@ -69,9 +70,10 @@ h1:hover {
   color: #666;
   margin-bottom: 2rem;
   opacity: 0;
-  animation: fadeInText 1.5s ease-in-out 1s forwards;
+  animation: fadeInText 1.5s ease-in-out 1.5s forwards; /* Slight delay for smooth flow */
 }
 
+/* Button */
 .btn {
   background-color: #3b82f6;
   color: #fff;
@@ -85,6 +87,8 @@ h1:hover {
   position: relative;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  animation: fadeInText 1.5s ease-in-out 2s forwards; /* Delayed for sequential animation */
 }
 
 .btn::after {
@@ -116,7 +120,7 @@ h1:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: zoomIn 1s ease-out;
+  animation: zoomIn 1.5s ease-out 0.5s forwards; /* Adjusted for smoothness */
 }
 
 .hero-image img {
@@ -127,6 +131,8 @@ h1:hover {
   padding: 1.5rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0; /* Fade in effect */
+  animation: fadeInText 1.5s ease-in-out 1s forwards; /* Smooth fade in for the image */
 }
 
 .hero-image img:hover {
@@ -204,6 +210,10 @@ h1:hover {
   0% {
     transform: scale(0.9);
     opacity: 0;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.7;
   }
   100% {
     transform: scale(1);

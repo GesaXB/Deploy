@@ -8,21 +8,55 @@
     <title>About Me</title>
   </head>
   <body>
-    <!-- about.html -->
+    <!-- About Section -->
     <section class="about-section">
       <div class="about-content">
-        <div class="about-text">
+        <div class="about-image fade-in-scroll">
+          <img src="{% static 'images/Profil.png' %}" alt="My Photo" />
+        </div>
+        <div class="about-text fade-in-scroll">
+          <h3>About</h3>
           <h2>About Me</h2>
           <p>
-            I am a passionate developer with a love for creating innovative and
-            functional web applications. I specialize in modern web development
-            technologies and always aim to improve my skills.
+            Hi, I’m Geisha – a Junior Web Developer with a passion for building
+            modern, scalable web applications. I specialize in Django, Laravel,
+            and React.js for full-stack development, and I have a solid
+            understanding of front-end technologies like HTML, CSS, and
+            JavaScript. I also have experience working with databases such as
+            PostgreSQL and SQLite.
           </p>
-        </div>
-        <div class="about-image">
-          <img src="{% static 'images/Profil.png' %}" alt="My Photo" />
+          <p>
+            In addition to web development, I’m exploring machine learning with
+            Python, focusing on data preprocessing and model training. Always
+            eager to learn and create, I’m committed to delivering high-quality,
+            user-friendly web solutions.
+          </p>
         </div>
       </div>
     </section>
+
+    <!-- JavaScript for Scroll Animation -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const fadeInElements = document.querySelectorAll(".fade-in-scroll");
+
+        // Function to check if the element is in the viewport
+        function checkScroll() {
+          fadeInElements.forEach(function (element) {
+            const rect = element.getBoundingClientRect();
+            if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+              element.classList.add("visible");
+            }
+          });
+        }
+
+        // Run the check on scroll and load
+        window.addEventListener("scroll", checkScroll);
+        window.addEventListener("load", checkScroll);
+
+        // Initial check for elements already in the viewport
+        checkScroll();
+      });
+    </script>
   </body>
 </html>

@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/project.css' %}" />
+    <title>Project</title>
+  </head>
+  <body>
+    <section class="projects-section animate-on-scroll">
+      <div class="container">
+        <h3>Recent Projects</h3>
+        <h2>My Portfolio</h2>
+        <div class="projects-grid">
+          {% for project in projects %}
+          <div class="project-card animate-on-scroll">
+            {% if project.image %}
+            <img src="{{ project.image.url }}" alt="{{ project.title }}" />
+            {% else %}
+            <img
+              src="{% static 'default-image.png' %}"
+              alt="Default Project Image"
+            />
+            {% endif %}
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description|truncatewords:15 }}</p>
+
+            <!-- Display skill categories -->
+            <div class="skills">
+              <h4>Skills:</h4>
+              <ul>
+                {% for skill in project.skills.all %}
+                <li>{{ skill.name }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+
+            <div class="links">
+              {% if project.github_link %}
+              <a
+                href="{{ project.github_link }}"
+                target="_blank"
+                class="view-project"
+                >Link Project →</a
+              >
+              {% endif %} {% if project.demo_link %}
+              <a
+                href="{{ project.demo_link }}"
+                target="_blank"
+                class="view-project"
+                >Demo →</a
+              >
+              {% endif %}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <!-- Scroll-triggered animation script -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const elements = document.querySelectorAll(".animate-on-scroll");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
+            });
+          },
+          {
+            threshold: 0.1, // Elemen terlihat saat 10% muncul di viewport
+          }
+        );
+
+        elements.forEach((el) => observer.observe(el));
+      });
+    </script>
+  </body>
+</html>

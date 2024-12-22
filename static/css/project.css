@@ -1,0 +1,192 @@
+/* General Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  background: linear-gradient(180deg, #f0f4f8, #e4ebf5); /* Gradien lembut */
+  color: #333;
+}
+
+h2,
+h3 {
+  text-align: center;
+  color: #2563eb; /* Ganti dengan warna biru utama */
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Efek awal sebelum elemen muncul */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(40px); /* Geser elemen lebih jauh untuk efek smooth */
+  transition: opacity 1.2s cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 1.2s cubic-bezier(0.25, 0.1, 0.25, 1); /* Transisi lebih lambat dengan easing smooth */
+}
+
+/* Efek saat elemen terlihat */
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0); /* Geser kembali ke posisi normal */
+}
+
+/* Projects Section */
+.projects-section {
+  padding: 50px 0;
+  background: linear-gradient(180deg, #ffffff, #f9f9f9); /* Gradien putih */
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+  transition: transform 0.3s ease-in-out;
+}
+
+.projects-section:hover {
+  transform: scale(1.02); /* Sedikit skala saat hover untuk efek interaktif */
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+/* Card Styling */
+.project-card {
+  background: linear-gradient(180deg, #f9f9f9, #ffffff); /* Gradien lembut */
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease,
+    opacity 0.3s ease-in-out;
+  margin-top: 40px;
+  opacity: 0; /* Start with invisible */
+  transform: translateY(40px); /* Start with slightly shifted position */
+}
+
+.project-card.visible {
+  opacity: 1;
+  transform: translateY(0); /* Animasi card muncul secara halus */
+}
+
+.project-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.05); /* Gambar sedikit membesar saat hover */
+}
+
+.project-card h3 {
+  padding: 15px;
+  font-size: 1.4em;
+  text-align: center;
+  color: #2563eb; /* Ganti dengan warna biru utama */
+}
+
+.project-card p {
+  padding: 0 20px 20px;
+  font-size: 1em;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Skills Section */
+.skills {
+  padding: 20px 15px 15px;
+}
+
+.skills h4 {
+  font-size: 1.1em;
+  color: #2563eb; /* Ganti dengan warna biru utama */
+}
+
+.skills ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.skills li {
+  font-size: 1em;
+  color: #555;
+  margin: 5px 0;
+  transition: color 0.3s ease;
+}
+
+.skills li:hover {
+  color: #2563eb; /* Ganti dengan warna biru utama */
+}
+
+/* Links Section */
+.links {
+  padding: 0 15px 20px;
+  text-align: center;
+}
+
+.links a {
+  display: inline-block;
+  margin: 10px;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 12px 24px;
+  background: linear-gradient(90deg, #2563eb, #003a9f); /* Gradien tombol */
+  border-radius: 8px;
+  transition: background 0.4s ease, transform 0.3s ease;
+}
+
+.links a:hover {
+  background: linear-gradient(90deg, #003a9f, #2563eb);
+  transform: translateY(-5px);
+}
+
+/* Animasi */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .project-card img {
+    height: 150px;
+  }
+
+  .links a {
+    padding: 10px 20px;
+  }
+}
