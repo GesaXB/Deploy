@@ -1,0 +1,237 @@
+/* Import Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f9fc;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.hero {
+  display: flex;
+  align-items: center; /* Vertikal center */
+  justify-content: space-between; /* Membuat konten terpisah antara teks dan gambar */
+  padding: 4rem 5%;
+  max-width: 1200px;
+  margin: auto;
+  gap: 3rem;
+  position: relative;
+  animation: fadeIn 1s ease-out;
+  margin-top: 210px; /* Menambahkan margin atas untuk memberi jarak antara navbar dan hero */
+}
+
+/* Konten teks */
+.hero-content {
+  max-width: 600px;
+  transform: translateY(50px);
+  opacity: 0;
+  animation: slideInLeft 1s ease-out forwards,
+    fadeInText 1.5s ease-in-out 0.5s forwards;
+}
+
+/* Animasi teks intro */
+.intro {
+  font-size: 1.1rem;
+  color: #3b82f6;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0;
+  animation: fadeInText 1.5s ease-in-out 0.5s forwards;
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 1.3;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  animation: fadeInText 1.5s ease-in-out 1s forwards; /* Add delay for smoother transition */
+}
+
+h1 .highlight {
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+h1:hover {
+  color: #2563eb;
+  transform: scale(1.05);
+}
+
+.description {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeInText 1.5s ease-in-out 1.5s forwards; /* Slight delay for smooth flow */
+}
+
+/* Button */
+.btn {
+  background-color: #3b82f6;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  animation: fadeInText 1.5s ease-in-out 2s forwards; /* Delayed for sequential animation */
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn:hover {
+  background-color: #2563eb;
+  transform: scale(1.05);
+}
+
+.btn:hover::after {
+  width: 0;
+  height: 0;
+}
+
+/* Konten gambar */
+.hero-image {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: zoomIn 1.5s ease-out 0.5s forwards; /* Adjusted for smoothness */
+}
+
+.hero-image img {
+  width: 320px;
+  height: auto;
+  border-radius: 50%;
+  background-color: rgba(59, 130, 246, 0.05);
+  padding: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0; /* Fade in effect */
+  animation: fadeInText 1.5s ease-in-out 1s forwards; /* Smooth fade in for the image */
+}
+
+.hero-image img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.hero-image::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 360px;
+  height: 360px;
+  background-color: rgba(59, 130, 246, 0.08);
+  border-radius: 50%;
+  z-index: -1;
+  animation: pulse 3s infinite ease-in-out;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .hero {
+    margin-top: 50px;
+    flex-direction: column; /* Mengatur elemen hero menjadi kolom pada layar kecil */
+    text-align: center; /* Teks ditengah */
+    gap: 2rem;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-image img {
+    width: 260px;
+  }
+
+  .hero-image::before {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInText {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+}

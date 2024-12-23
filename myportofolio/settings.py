@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-qkd**r53(m+9&!pca^czxs0ab02@qrm)q!=21of%8bzyqvq!v9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -126,6 +127,8 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 # Lokasi file statis yang dikumpulkan (untuk produksi)
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
+STATICSTORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
