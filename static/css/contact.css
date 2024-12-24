@@ -1,0 +1,207 @@
+/* General styles for the form container */
+.form-container {
+  max-width: 800px;
+  margin: 50px auto;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Heading styles */
+.form-container h2 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 10px;
+}
+
+.form-container p {
+  text-align: center;
+  font-size: 15px;
+  color: #666666;
+  margin-bottom: 30px;
+}
+
+/* Custom form field styling */
+.form-field {
+  margin-bottom: 20px; /* Add space between each field */
+}
+
+.form-field label {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 8px; /* Space between label and input */
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 15px;
+  color: #333333;
+  background-color: #fafafa;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Focused input styles */
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: #007bff;
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+  outline: none;
+}
+
+/* Textarea styles */
+.form-field textarea {
+  resize: none;
+  height: 120px;
+}
+
+/* Checkbox styles */
+.form-check {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.form-check-input {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  accent-color: #007bff;
+}
+
+.form-check-label {
+  font-size: 14px;
+  color: #333333;
+}
+
+/* Submit button styles */
+.btn-submit {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 14px 25px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  width: 100%;
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #0056b3;
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-submit:active {
+  background-color: #004085;
+  transform: translateY(0);
+}
+
+/* Info text styles */
+.info-text {
+  text-align: center;
+  font-size: 16px;
+  color: #555555;
+  margin-top: 30px; /* Adds space between the form and the info text */
+}
+
+/* Alert box styles */
+.alert-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+}
+
+.alert-box.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.alert-content {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 30px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  animation: popUp 0.4s ease;
+}
+
+.alert-content h3 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.alert-content p {
+  font-size: 16px;
+  color: #555555;
+  margin-bottom: 20px;
+}
+
+.btn-close-alert {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-close-alert:hover {
+  background-color: #0056b3;
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
+}
+
+/* Animation for alert */
+@keyframes popUp {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .form-container {
+    padding: 20px;
+  }
+
+  .form-field input,
+  .form-field textarea {
+    font-size: 14px;
+  }
+
+  .btn-submit {
+    font-size: 14px;
+  }
+}

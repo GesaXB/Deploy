@@ -7,11 +7,9 @@
   </head>
   <body>
     {% include 'navbar.html'%} {% include 'hero.html'%}
-    <div>
-      {% include 'skils.html'%} {% include 'bot.html' %}
-    </div>
-    <div>
-      {% include 'project.html' %}
+    <div>{% include 'skils.html'%} {% include 'bot.html' %}</div>
+    <div>{% include 'project.html' %}</div>
+    <div>{% include 'contact.html' %}</div>
     </div>
     <main>{% block content %} {% endblock %}</main>
   </body>

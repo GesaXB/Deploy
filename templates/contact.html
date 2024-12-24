@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Portfolio - Contact{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}" />
+  </head>
+  <body>
+    <div class="form-container">
+      <h2 style="color: #007bff">Contact Me</h2>
+      <p>Let's contact me for more details</p>
+
+      <form id="contactForm" method="POST">
+        {% csrf_token %}
+
+        <!-- Custom rendering for form fields -->
+        <div class="form-field">
+          <label for="{{ form.name.id_for_label }}">Name</label>
+          {{ form.name }}
+        </div>
+        <div class="form-field">
+          <label for="{{ form.email.id_for_label }}">Email</label>
+          {{ form.email }}
+        </div>
+        <div class="form-field">
+          <label for="{{ form.message.id_for_label }}">Message</label>
+          {{ form.message }}
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="terms" required />
+          <label class="form-check-label" for="terms">I accept the Terms</label>
+        </div>
+
+        <button type="submit" class="btn-submit">Submit</button>
+      </form>
+
+      <!-- Information Text Below the Form -->
+      <p class="info-text">
+        Please note that the data you submit will be sent to the admin for
+        further processing.
+      </p>
+    </div>
+
+    <!-- Alert -->
+    <div id="alertBox" class="alert-box hidden">
+      <div class="alert-content">
+        <h3>Thank You!</h3>
+        <p>
+          Your form has been successfully submitted. We'll get back to you
+          shortly.
+        </p>
+        <button id="closeAlert" class="btn-close-alert">Close</button>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("contactForm");
+        const alertBox = document.getElementById("alertBox");
+        const closeAlert = document.getElementById("closeAlert");
+
+        // Simulasi pengiriman form
+        form.addEventListener("submit", function (e) {
+          e.preventDefault(); // Mencegah submit default
+
+          // Tampilkan alert
+          alertBox.classList.remove("hidden");
+
+          // Reset form setelah submit
+          form.reset();
+        });
+
+        // Tutup alert
+        closeAlert.addEventListener("click", function () {
+          alertBox.classList.add("hidden");
+        });
+      });
+    </script>
+  </body>
+</html>

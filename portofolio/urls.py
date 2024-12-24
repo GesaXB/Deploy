@@ -5,8 +5,9 @@ from django.conf import settings
 
 urlpatterns = [
     path('', views.base, name='base'),  # Hanya halaman utama (landing page)
-    path('skills/', views.skills_view, name='skills'),
-    path('portfolio/', views.portfolio, name='portfolio'),
+    path('./', views.skills_view, name='skills'),
+    path('../', views.portfolio, name='portfolio'),
+    path('.../', views.contact_view, name='contact'),
 ]
 
 if settings.DEBUG:
